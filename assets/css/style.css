@@ -1,0 +1,41 @@
+#main-container {
+	
+
+}
+
+h1 {
+	font-family: 'Permanent Marker', cursive;
+}
+
+h2 {
+	color: green;
+	font-family: 'Sriracha', cursive;
+}
+
+#jumbotron {
+	border-style: solid;
+	border-color: silver;
+	border-width: 20px;
+	background-color: white;
+}
+
+.whiteboard {
+	opacity: 0.3;
+	height: 100%;
+	width: 100%;
+}
+
+.eraser {
+	width: 56px;
+	height: 20px;
+	background: black;
+	padding-bottom: 0px;
+}
+
+.black-marker {
+
+}
+
+.green-marker {
+
+}
