@@ -1,0 +1,26 @@
+.display-3 {
+	font-family: 'Acme', sans-serif;
+}
+
+
+    .crystal-image {
+      width: 100px;
+      height: 300px;
+      margin-left: 45px;
+      margin-right: 45px;
+    }
+
+
+    #totalscore {
+    	height: 100px;
+    	font-size: 30px;
+    	text-align: center;
+    }
+
+    #crashpic {
+    	float: right;
+    }
+
+    .jumbotron {
+
+    }
