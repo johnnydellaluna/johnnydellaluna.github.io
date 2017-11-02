@@ -3,13 +3,17 @@
 
 }
 
+p {
+	font-family: 'Oswald', sans-serif;
+}
+
 h1 {
 	font-family: 'Permanent Marker', cursive;
 }
 
 h2 {
+	font-family: 'Oswald', sans-serif;
 	color: green;
-	font-family: 'Sriracha', cursive;
 }
 
 #jumbotron {
@@ -25,12 +29,12 @@ h2 {
 	width: 100%;
 }
 
-.eraser {
+/*.eraser {
 	width: 56px;
 	height: 20px;
 	background: black;
-	padding-bottom: 0px;
-}
+	padding: 0 100 0 0;
+}*/
 
 .black-marker {
 
