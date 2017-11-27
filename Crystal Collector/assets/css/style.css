@@ -1,26 +1,31 @@
 .display-3 {
-	font-family: 'Acme', sans-serif;
+    font-family: 'Acme', sans-serif;
+}
+
+body {
+    background-image: url("assets/images/background.jpg");
+}
+
+.crystal-image {
+    width: 100px;
+    height: 300px;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+#number-to-guess {
+    height: 100px;
+    font-size: 30px;
+    text-align: center;
 }
 
 
-    .crystal-image {
-      width: 100px;
-      height: 300px;
-      margin-left: 45px;
-      margin-right: 45px;
-    }
+#totalscore {
+    height: 100px;
+    font-size: 30px;
+    text-align: center;
+}
 
-
-    #totalscore {
-    	height: 100px;
-    	font-size: 30px;
-    	text-align: center;
-    }
-
-    #crashpic {
-    	float: right;
-    }
-
-    .jumbotron {
-
-    }
+#crashpic {
+    float: right;
+}

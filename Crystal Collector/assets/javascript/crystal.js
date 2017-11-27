@@ -1,58 +1,72 @@
- var audio = new Audio("crashturtlewoods.mp3");
-	  audio.play();
+$("#play-again").hide();
 
-	  var targetNumber = Math.floor(Math.random() * 120) + 19;
-	  $("#number-to-guess").text(targetNumber);
-	  var counter = 0;
-	  // Now for the hard part. Creating multiple crystals each with their own unique number value.
-	  // We begin by expanding our array to include four options.
+var audio = new Audio("crashturtlewoods.mp3");
+audio.play();
 
-	  var crystalone = [Math.floor(Math.random() * 12) + 1];
-	  var crystaltwo = [Math.floor(Math.random() * 12) + 1];
-	  var crystalthree = [Math.floor(Math.random() * 12) + 1];
-	  var crystalfour = [Math.floor(Math.random() * 12) + 1];
+$("#new-game-button").on("click", function newGame() {
+    $("#new-game-button").hide();
 
-	  var crystalNumbers = [crystalone, crystaltwo, crystalthree, crystalfour];
-	  
-	  // Next we create a for loop to create crystals for every numberOption.
-	  for (var i = 0; i < crystalNumbers.length; i++) {
-	    // For each iteration, we will create an imageCrystal
-	    var imageCrystal = $("<img>");
-	    // First each crystal will be given the class ".crystal-image".
-	    // This will allow the CSS to take effect.
-	    imageCrystal.addClass("crystal-image");
-	    // Each imageCrystal will be given a src link to the crystal image
-	    imageCrystal.attr("src", "https://vignette.wikia.nocookie.net/crashban/images/7/7e/Crash_Bandicoot_2_Cortex_Strikes_Back_Crystal.png/revision/latest?cb=20161008001416");
-	    // Each imageCrystal will be given a data attribute called data-crystalValue.
-	    // This data attribute will be set equal to the array value.
-	    imageCrystal.attr("data-crystalvalue", crystalNumbers[i]);
-	    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-	    $("#crystals").append(imageCrystal);
-	  }
-	  // This time, our click event applies to every single crystal on the page. Not just one.
-	  $(".crystal-image").on("click", function() {
-	    // Determining the crystal's value requires us to extract the value from the data attribute.
-	    // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-	    // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-	    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
-	    
-	    var crystalValue = ($(this).attr("data-crystalvalue"));
-	    crystalValue = parseInt(crystalValue);
-	    // We then add the crystalValue to the user's "counter" which is a global variable.
-	    // Every click, from every crystal adds to the global counter.
-	    counter += crystalValue;
-	    var wins = 0;
-	    var losses = 0;
-	    // All of the same game win-lose logic applies. So the rest remains unchanged.
-	    $("#totalscore").text("New Score: " + counter);
-	    if (counter === targetNumber) {
-	    	wins++;
-	      $("#totalscore").html("You win!<button>  Play again</button>");
-	      $("#wins").text(wins);
-	    }
-	    else if (counter >= targetNumber) {
-	    	losses++
-	      $("#totalscore").html("You didn't stop Cortex!  <button>Try again</button>");
-	      $("#losses").text(losses);
-	    }
-	  });
+    var targetNumber = Math.floor(Math.random() * 120) + 19;
+    $("#number-to-guess").text("Target Score: " + targetNumber);
+    var counter = 0;
+    // Now for the hard part. Creating multiple crystals each with their own unique number value.
+    // We begin by expanding our array to include four options.
+
+    var crystalone = [Math.floor(Math.random() * 12) + 1];
+    var crystaltwo = [Math.floor(Math.random() * 12) + 1];
+    var crystalthree = [Math.floor(Math.random() * 12) + 1];
+    var crystalfour = [Math.floor(Math.random() * 12) + 1];
+
+    var crystalNumbers = [crystalone, crystaltwo, crystalthree, crystalfour];
+
+    // Next we create a for loop to create crystals for every numberOption.
+    for (var i = 0; i < crystalNumbers.length; i++) {
+        // For each iteration, we will create an imageCrystal
+        var imageCrystal = $("<img>");
+        // First each crystal will be given the class ".crystal-image".
+        // This will allow the CSS to take effect.
+        imageCrystal.addClass("crystal-image");
+        // Each imageCrystal will be given a src link to the crystal image
+        imageCrystal.attr("src", "https://vignette.wikia.nocookie.net/crashban/images/7/7e/Crash_Bandicoot_2_Cortex_Strikes_Back_Crystal.png/revision/latest?cb=20161008001416");
+        // Each imageCrystal will be given a data attribute called data-crystalValue.
+        // This data attribute will be set equal to the array value.
+        imageCrystal.attr("data-crystalvalue", crystalNumbers[i]);
+        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+        $("#crystals").append(imageCrystal);
+    }
+    // This time, our click event applies to every single crystal on the page. Not just one.
+    $(".crystal-image").on("click", function() {
+        // Determining the crystal's value requires us to extract the value from the data attribute.
+        // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+        // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
+        // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+
+        var crystalValue = ($(this).attr("data-crystalvalue"));
+        crystalValue = parseInt(crystalValue);
+        // We then add the crystalValue to the user's "counter" which is a global variable.
+        // Every click, from every crystal adds to the global counter.
+        counter += crystalValue;
+        var wins = 0;
+        var losses = 0;
+        $("#totalscore").text("New Score: " + counter);
+        if (counter === targetNumber) {
+            wins++;
+            $("#number-to-guess").hide;
+            $("#totalscore").html("You win!");
+            $("#wins").text(wins);
+            $("#play-again").show();
+        } else if (counter >= targetNumber) {
+            losses++;
+            $("#number-to-guess").hide;
+            $("#totalscore").html("You didn't stop Cortex!");
+            $("#losses").text(losses);
+            $("#play-again").show()
+
+        }
+    })
+});
+$("#play-again").on("click", function restartGame() {
+    newGame()
+
+});
+restartGame();
